@@ -1,0 +1,20 @@
+{
+  "name": "northstar-supply-store",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,magenta \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "format": "prettier --write \"client/src/**/*.{js,jsx,css}\" \"server/src/**/*.js\" \"*.{json,md}\" \"client/*.{json,js,html}\" \"server/*.json\"",
+    "format:check": "prettier --check \"client/src/**/*.{js,jsx,css}\" \"server/src/**/*.js\" \"*.{json,md}\" \"client/*.{json,js,html}\" \"server/*.json\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "prettier": "^3.6.2"
+  }
+}
